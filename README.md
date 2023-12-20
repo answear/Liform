@@ -18,8 +18,9 @@ Liform generates a JSON schema representation, that serves as documentation and 
 
 Open a console, enter your project directory and execute the
 following command to download the latest stable version of this library:
-
-    $ composer require limenius/liform
+```bash
+composer require limenius/liform
+```
 
 This command requires you to have Composer installed globally, as explained
 in the *installation chapter* of the Composer documentation.
@@ -29,9 +30,9 @@ in the *installation chapter* of the Composer documentation.
 #### Note
 `symfony/form ^5.0` broke backwards compatibility on some abstract functions we use. If you need to function with
 earlier versions, you need to use Liform v0.15 or earlier:
-
-    $ composer require limenius/liform "^0.15"
-
+```bash
+composer require limenius/liform "^0.15"
+```
 ## Usage
 
 Serializing a form into JSON Schema:
