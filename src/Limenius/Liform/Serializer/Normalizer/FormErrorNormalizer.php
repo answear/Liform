@@ -65,14 +65,7 @@ class FormErrorNormalizer implements NormalizerInterface
         return [Form::class => true];
     }
 
-    /**
-     * This code has been taken from JMSSerializer.
-     *
-     * @param FormInterface $data
-     *
-     * @return array
-     */
-    private function convertFormToArray(FormInterface $data)
+    private function convertFormToArray(FormInterface $data): array
     {
         $form = $errors = [];
         foreach ($data->getErrors() as $error) {
@@ -97,12 +90,7 @@ class FormErrorNormalizer implements NormalizerInterface
         return $form;
     }
 
-    /**
-     * @param FormError $error
-     *
-     * @return string
-     */
-    private function getErrorMessage(FormError $error)
+    private function getErrorMessage(FormError $error): string
     {
         if (null !== $error->getMessagePluralization()) {
             return $this->translator->trans(

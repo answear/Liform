@@ -50,15 +50,7 @@ class InitialValuesNormalizer implements NormalizerInterface
         return [Form::class => true];
     }
 
-    /**
-     * Gets the values of the form
-     *
-     * @param Form|FormInterface $form
-     * @param FormView $formView
-     *
-     * @return mixed
-     */
-    private function getValues(FormInterface $form, FormView $formView)
+    private function getValues(FormInterface $form, FormView $formView): mixed
     {
         if (!empty($formView->children)) {
             if (in_array('choice', FormUtil::typeAncestry($form)) &&
@@ -92,14 +84,7 @@ class InitialValuesNormalizer implements NormalizerInterface
         return $formView->vars['value'];
     }
 
-    /**
-     * Normalize when choice is multiple
-     *
-     * @param FormView $formView
-     *
-     * @return array
-     */
-    private function normalizeMultipleExpandedChoice(FormView $formView)
+    private function normalizeMultipleExpandedChoice(FormView $formView): array
     {
         $data = [];
         foreach ($formView->children as $name => $child) {
@@ -111,14 +96,7 @@ class InitialValuesNormalizer implements NormalizerInterface
         return $data;
     }
 
-    /**
-     * Normalize when choice is expanded
-     *
-     * @param FormView $formView
-     *
-     * @return mixed
-     */
-    private function normalizeExpandedChoice(FormView $formView)
+    private function normalizeExpandedChoice(FormView $formView): mixed
     {
         foreach ($formView->children as $name => $child) {
             if ($child->vars['checked']) {
