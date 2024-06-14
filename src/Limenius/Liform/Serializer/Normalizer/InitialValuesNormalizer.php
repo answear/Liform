@@ -47,7 +47,7 @@ class InitialValuesNormalizer implements NormalizerInterface
      */
     public function getSupportedTypes(?string $format): array
     {
-        return ['object' => true];
+        return [Form::class => true];
     }
 
     /**
