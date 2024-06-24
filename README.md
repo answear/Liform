@@ -3,23 +3,23 @@ Liform
 
 Liform is a library for serializing Symfony Forms into [JSON schema](http://json-schema.org/). It can be used along with [liform-react](https://github.com/Limenius/liform-react) or [json-editor](https://github.com/jdorn/json-editor), or any other form generator based on json-schema.
 
-It is used by [LiformBundle](https://github.com/Limenius/LiformBundle) but can also be used as a stand-alone library.
+It is used by [LiformBundle](https://github.com/answear/LiformBundle) but can also be used as a stand-alone library.
 
 It is very annoying to maintain backend forms that match forms in a client technology, such as JavaScript. It is also annoying to maintain a documentation of such forms. And error prone.
 
 Liform generates a JSON schema representation, that serves as documentation and can be used to document, validate your data and, if you want, to generate forms using a generator.
 
-[![Build Status](https://travis-ci.org/Limenius/Liform.svg?branch=master)](https://travis-ci.org/Limenius/Liform)
-[![Latest Stable Version](https://poser.pugx.org/limenius/liform/v/stable)](https://packagist.org/packages/limenius/liform)
-[![Latest Unstable Version](https://poser.pugx.org/limenius/liform/v/unstable)](https://packagist.org/packages/limenius/liform)
-[![License](https://poser.pugx.org/limenius/liform/license)](https://packagist.org/packages/limenius/liform)
+[![Build Status](https://travis-ci.org/answear/Liform.svg?branch=master)](https://travis-ci.org/answear/Liform)
+[![Latest Stable Version](https://poser.pugx.org/answear/liform/v/stable)](https://packagist.org/packages/answear/liform)
+[![Latest Unstable Version](https://poser.pugx.org/answear/liform/v/unstable)](https://packagist.org/packages/answear/liform)
+[![License](https://poser.pugx.org/answear/liform/license)](https://packagist.org/packages/answear/liform)
 
 ## Installation
 
 Open a console, enter your project directory and execute the
 following command to download the latest stable version of this library:
 
-    $ composer require limenius/liform
+    $ composer require answear/liform
 
 This command requires you to have Composer installed globally, as explained
 in the *installation chapter* of the Composer documentation.
@@ -30,7 +30,7 @@ in the *installation chapter* of the Composer documentation.
 `symfony/form ^5.0` broke backwards compatibility on some abstract functions we use. If you need to function with
 earlier versions, you need to use Liform v0.15 or earlier:
 
-    $ composer require limenius/liform "^0.15"
+    $ composer require answear/liform "^0.15"
 
 ## Usage
 
@@ -45,7 +45,7 @@ $resolver = new Resolver();
 $resolver->setTransformer('text', Transformer\StringTransformer);
 $resolver->setTransformer('textarea', Transformer\StringTransformer, 'textarea');
 // more transformers you might need, for a complete list of what is used in Symfony
-// see https://github.com/Limenius/LiformBundle/blob/master/Resources/config/transformers.xml
+// see https://github.com/answear/LiformBundle/blob/master/Resources/config/transformers.xml
 $liform = new Liform($resolver);
 
 $form = $this->createForm(CarType::class, $car, ['csrf_protection' => false]);
@@ -158,7 +158,7 @@ To obtain an array with the errors of your form. [liform-react](https://github.c
 
 The goal of Liform is to extract as much data as possible from the form in order to have a complete representation with validation and UI hints in the schema. The options currently supported are.
 
-Some of the data can be extracted from the usual form attributes, however, some attributes will be provided using a special `liform` array that is passed to the form options. To do so in a comfortable way a [form extension](http://symfony.com/doc/current/form/create_form_type_extension.html) is provided. See [AddLiformExtension.php](https://github.com/Limenius/Liform/blob/master/src/Limenius/Liform/Form/Extension/AddLiformExtension.php)
+Some of the data can be extracted from the usual form attributes, however, some attributes will be provided using a special `liform` array that is passed to the form options. To do so in a comfortable way a [form extension](http://symfony.com/doc/current/form/create_form_type_extension.html) is provided. See [AddLiformExtension.php](https://github.com/answear/Liform/blob/master/src/Limenius/Liform/Form/Extension/AddLiformExtension.php)
 
 ### Required
 
